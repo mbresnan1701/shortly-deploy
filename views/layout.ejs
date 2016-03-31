@@ -3,13 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <title>Shortly</title>
-    <link rel="stylesheet" type="text/css" href="./public/dist/style.min.css">
-    <script src='./public/dist/built.min.js'></script>
-
+    <%if (process.env.PROD) {%>
+      <link rel='stylesheet' type="text/css" href='style.min.css'>
+    <%} else {%>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    <%} %>
+    <script src="/lib/jquery.js"></script>
+    <script src="/lib/underscore.js"></script>
+    <script src="/lib/backbone.js"></script>
+    <script src="/lib/handlebars.js"></script>
+   
   </head>
 
   <body>
-    <h1>Short Fuse, Inc.</h1>
+    <h1>HAIL HYDRA!!!</h1>
     <%- body %>
   </body>
 </html>
