@@ -4,11 +4,16 @@ var crypto = require('crypto');
 
 var Link = db.mongoose.model('Link', db.linkSchema);
 
-db.linkSchema.methods.createCode = function() {
+db.linkSchema.methods.createCode = function(model, next) {
   var shasum = crypto.createHash('sha1');
-  shasum.update(this.url);
-  this.code = shasum.digest('hex').slice(0, 5);
+  shasum.update(model.url);
+  model.code = shasum.digest('hex').slice(0, 5);
+  next();
 };
+
+db.linkSchema.pre('save', function(next, done) {
+  db.linkSchema.methods.createCode(this, next);
+});
 // var Link = db.Model.extend({
 //   tableName: 'urls',
 //   hasTimestamps: true,
