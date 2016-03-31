@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     },
 
     eslint: {
-      target: [ 'public/dist/built.min.js'
+      files: [ 'public/dist/shortly-deploy.min.js'
         // Add list of files to lint here
 
       ]
@@ -73,8 +73,8 @@ module.exports = function(grunt) {
     shell: {
       prodServer: {
         options: {
-            stdin: true,
-            stdout: true
+          stdin: true,
+          stdout: true
         },
         command: 'git push live master'
       }
@@ -137,8 +137,8 @@ module.exports = function(grunt) {
       grunt.task.run([ 'server-dev' ]);
     }
   });
-g
-  grunt.registerTask('deploy', function(n){
+
+  grunt.registerTask('deploy', function(n) {
     // add your deploy tasks here
     if (grunt.option('prod')) {
       // add your production server task here

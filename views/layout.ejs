@@ -5,8 +5,10 @@
     <title>Shortly</title>
     <%if (process.env.PROD) {%>
       <link rel='stylesheet' type="text/css" href='style.min.css'>
+      <script src='dist/shortly-deploy.min.js'/>
     <%} else {%>
       <link rel="stylesheet" type="text/css" href="style.css">
+      
     <%} %>
     <script src="/lib/jquery.js"></script>
     <script src="/lib/underscore.js"></script>
